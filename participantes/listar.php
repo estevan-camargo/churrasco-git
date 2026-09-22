@@ -2,12 +2,10 @@
 require_once '../includes/cabecalho.php';
 require_once '../config/conexao.php';
 
-// Captura de parâmetros de busca e filtros
 $busca = $_GET['busca'] ?? '';
 $filtro_pago = $_GET['pago'] ?? 'todos';
 $filtro_presenca = $_GET['presenca'] ?? 'todos';
 
-// Construção da consulta dinâmica
 $sql = "SELECT * FROM participantes WHERE 1=1";
 
 if (!empty($busca)) {

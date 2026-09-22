@@ -17,7 +17,6 @@ function validarFormulario() {
         alert("Selecione um tipo de churrasco.");
         return false;
     }
-    // Verificação adicional escolhida: Telefone obrigatório
     if (telefone === "") {
         alert("Por favor, preencha o campo Telefone para contacto.");
         return false;
@@ -25,7 +24,6 @@ function validarFormulario() {
     return true;
 }
 
-// 2. Confirmação antes de excluir
 function confirmarExclusao(nome) {
     return confirm("Deseja realmente excluir esta inscrição de " + nome + "?");
 }

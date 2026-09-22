@@ -2,7 +2,6 @@
 require_once 'includes/verificar_login.php';
 require_once 'config/conexao.php';
 
-// Cálculos baseados nos registos da base de dados
 $resTotal = $con->query("SELECT COUNT(*) as total FROM participantes")->fetch_assoc();
 $resConf = $con->query("SELECT COUNT(*) as total FROM participantes WHERE confirmado = 1")->fetch_assoc();
 $resNaoConf = $con->query("SELECT COUNT(*) as total FROM participantes WHERE confirmado = 0")->fetch_assoc();
@@ -21,7 +20,7 @@ $resVeg = $con->query("SELECT COUNT(*) as total FROM participantes WHERE tipo_ch
 </head>
 <body>
     <h1>CHURRASCO DA SEMANA FARROUPILHA</h1>
-    <p>Bem-vindo ao sistema, <?php echo htmlspecialchars($_SESSION['usuario']); ?></p>
+    <p>Bem-vindo ao sistema, <?php echo htmlspecialchars($_SESSION['usuario_nome'] ?? 'Usuário'); ?></p>
     
     <hr>
     
