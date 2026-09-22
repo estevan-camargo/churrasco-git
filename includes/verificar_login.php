@@ -4,8 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['autorizado']) || $_SESSION['autorizado'] !== true) {
-    // Reencaminha para a página de login na pasta auth
-    header("Location: /churrasco/auth/login.php");
+    header("Location: ../auth/login.php");
     exit();
 }
 ?>

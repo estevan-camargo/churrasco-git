@@ -4,11 +4,9 @@ if (isset($_SESSION['autorizado']) && $_SESSION['autorizado'] === true) {
     header("Location: ../index.php");
     exit();
 }
-
-$erro = isset($_GET['erro']) ? 'E-mail ou palavra-passe incorretos' : '';
 ?>
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,19 +15,17 @@ $erro = isset($_GET['erro']) ? 'E-mail ou palavra-passe incorretos' : '';
 </head>
 <body>
     <h2>Acesso ao Sistema</h2>
-    
-    <?php if (!empty($erro)): ?>
-        <p style="color: red;"><?php echo $erro; ?></p>
+    <?php if (isset($_GET['erro'])): ?>
+        <p style="color: red;">E-mail ou senha incorretos!</p>
     <?php endif; ?>
-
-    <form action="autenticar.php" method="post">
+    <form action="autenticar.php" method="POST">
         <label for="email">E-mail:</label><br>
-        <input type="text" name="email" id="email" placeholder="Digite o seu e-mail" required>
+        <input type="email" id="email" name="email" required><br><br>
         
-        <label for="senha">Palavra-passe:</label><br>
-        <input type="password" name="senha" id="senha" placeholder="Digite a sua palavra-passe" required>
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" name="senha" required><br><br>
         
-        <input type="submit" value="Entrar">
+        <button type="submit">Entrar</button>
     </form>
 </body>
 </html>
